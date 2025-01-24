@@ -13,4 +13,9 @@ namespace TaskManagementAPI.Models
 
         public DateTimeOffset UpdatedAt { get; set; }
     }
+
+    public partial class AuditModelWithSoftDelete : AuditModel
+    {
+        public bool IsDeleted { get; set; } = false;
+    }
 }

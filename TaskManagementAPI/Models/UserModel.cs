@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace TaskManagementAPI.Models
 {
     [Index(nameof(Email), IsUnique = true)]
-    public partial class UserModel : AuditModel
+    public partial class UserModel : AuditModelWithSoftDelete
     {
         public UserModel()
         {
