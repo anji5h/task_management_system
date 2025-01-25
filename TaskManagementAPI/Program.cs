@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagementAPI.Data;
+using TaskManagementAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<TaskDbContext>(options =>
 {
     options.UseMySQL(connectionString);
 });
+
+builder.Services.AddScoped<UnitOfWork>();
 
 var app = builder.Build();
 

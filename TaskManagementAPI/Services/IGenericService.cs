@@ -10,7 +10,7 @@ namespace TaskManagementAPI.Services
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
             string includeProperties = "");
 
-        Task<TEntity?> GetByIdAsync(Guid id);
+        Task<TEntity?> GetByIdAsync(Expression<Func<TEntity, bool>> filter);
 
         Task AddAsync(TEntity entity);
 

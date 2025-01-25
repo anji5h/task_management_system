@@ -42,9 +42,9 @@ namespace TaskManagementAPI.Services
             }
         }
 
-        public virtual async Task<TEntity?> GetByIdAsync(Guid id)
+        public virtual async Task<TEntity?> GetByIdAsync(Expression<Func<TEntity, bool>> filter)
         {
-            return await _entities.FindAsync(id);
+            return await _entities.FirstOrDefaultAsync(filter);
         }
 
         public virtual async Task AddAsync(TEntity entity)
