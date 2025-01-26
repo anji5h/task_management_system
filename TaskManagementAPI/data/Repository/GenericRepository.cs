@@ -5,11 +5,11 @@ using TaskManagementAPI.Data;
 
 namespace TaskManagementAPI.Services
 {
-    public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly DbSet<TEntity> _entities;
 
-        public GenericService(TaskDbContext context)
+        public GenericRepository(TaskDbContext context)
         {
             _entities = context.Set<TEntity>();
         }

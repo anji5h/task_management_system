@@ -12,18 +12,18 @@ namespace TaskManagementAPI.Services
             _context = context;
         }
 
-        private IGenericService<UserModel>? _userService;
+        private IGenericRepository<UserModel>? _userRepository;
 
-        public IGenericService<UserModel> UserService
+        public IGenericRepository<UserModel> UserRepository
         {
             get
             {
-                if (_userService == null)
+                if (_userRepository == null)
                 {
-                    _userService = new GenericService<UserModel>(_context);
+                    _userRepository = new GenericRepository<UserModel>(_context);
                 }
 
-                return _userService;
+                return _userRepository;
             }
 
         }

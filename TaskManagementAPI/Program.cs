@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagementAPI.Data;
+using TaskManagementAPI.Models;
 using TaskManagementAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseMySQL(connectionString);
 });
 
+builder.Services.AddSingleton<IPasswordService<UserModel>, PasswordService<UserModel>>();
 builder.Services.AddScoped<UnitOfWork>();
 
 var app = builder.Build();
